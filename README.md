@@ -108,6 +108,7 @@ loan-banking-system/
 │   │   └── resources/
 │   │       ├── application.properties
 │   │       ├── application-dev.properties
+├   ├       ├── application-stage.properties
 │   │       └── application-prod.properties
 │   └── test/
 │       └── java/com/banking/loan/

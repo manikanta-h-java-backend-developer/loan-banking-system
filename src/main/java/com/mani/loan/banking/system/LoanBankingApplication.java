@@ -1,13 +1,13 @@
-package com.mani.loan.banking_system;
+package com.mani.loan.banking.system;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BankingSystemApplication {
+public class LoanBankingApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BankingSystemApplication.class, args);
+		SpringApplication.run(LoanBankingApplication.class, args);
 	}
 
 }
