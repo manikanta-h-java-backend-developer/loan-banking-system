@@ -108,6 +108,7 @@ loan-banking-system/
 │   │   └── resources/
 │   │       ├── application.properties
 │   │       ├── application-dev.properties
+├   ├       ├── application-stage.properties
 │   │       └── application-prod.properties
 │   └── test/
 │       └── java/com/banking/loan/
@@ -155,7 +156,7 @@ CREATE TABLE customers (
     created_at       DATETIME DEFAULT GETDATE()
 );
 
--- Loans
+-- Loan
 CREATE TABLE loans (
     id               BIGINT PRIMARY KEY IDENTITY,
     customer_id      BIGINT FOREIGN KEY REFERENCES customers(id),
