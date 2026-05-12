@@ -59,7 +59,7 @@ jobs:
       contents: read
     if: |
       (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'dev') ||
-      (github.event_name == 'push' && github.ref == 'refs/heads/dev')
+      (github.event_name == 'push' && (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/main'))
     environment:
       name: dev
     steps:
@@ -103,7 +103,7 @@ jobs:
       contents: read
     if: |
       (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'stage') ||
-      (github.event_name == 'push' && github.ref == 'refs/heads/stage')
+      (github.event_name == 'push' && (github.ref == 'refs/heads/stage' || github.ref == 'refs/heads/main'))
     environment:
       name: stage
     steps:
@@ -147,7 +147,7 @@ jobs:
       contents: read
     if: |
       (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod') ||
-      (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/stage'))
+      (github.event_name == 'push' && github.ref == 'refs/heads/main')
     environment:
       name: prod
     steps:
