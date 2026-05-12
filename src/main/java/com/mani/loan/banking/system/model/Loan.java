@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "loans", schema = "dbo")
-public class Loans implements Serializable {
+public class Loan implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -40,7 +40,7 @@ public class Loans implements Serializable {
             nullable = false
     )
     @NotNull(message = "Customer must be associated with a loan")
-    private Customers customerId;
+    private Customer customer;
 
     /**
      * Type of loan applied for.

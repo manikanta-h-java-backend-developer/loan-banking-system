@@ -22,7 +22,7 @@ import java.util.List;
 @AllArgsConstructor
 @ToString(exclude = {"user", "loans"})
 @Table(name = "customers", schema = "dbo")
-public class Customers implements Serializable {
+public class Customer implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -52,7 +52,7 @@ public class Customers implements Serializable {
     private User user;
 
     // -------------------------------------------------------------------------
-    // Relationship — Loans (Bidirectional)
+    // Relationship — Loan (Bidirectional)
     // -------------------------------------------------------------------------
 
     /**
@@ -63,11 +63,11 @@ public class Customers implements Serializable {
     @OneToMany(
             mappedBy = "customer",
             fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL,
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE},
             orphanRemoval = false
     )
     @Builder.Default
-    private List<Loans> loans = new ArrayList<>();
+    private List<Loan> loan = new ArrayList<>();
 
     // -------------------------------------------------------------------------
     // Personal Details

@@ -156,7 +156,7 @@ CREATE TABLE customers (
     created_at       DATETIME DEFAULT GETDATE()
 );
 
--- Loans
+-- Loan
 CREATE TABLE loans (
     id               BIGINT PRIMARY KEY IDENTITY,
     customer_id      BIGINT FOREIGN KEY REFERENCES customers(id),
