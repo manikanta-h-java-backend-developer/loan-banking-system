@@ -47,7 +47,7 @@ The **Loan Banking System** is a backend service designed to handle end-to-end l
 
 ---
 
-## ✨ Features
+## ✨ Featuress
 
 - 🔐 **Role-Based Authentication** — Admin, Loan Officer, and Customer roles with JWT
 - 📋 **Loan Eligibility Rules Engine** — Configurable rules for credit score, income, and debt ratio
