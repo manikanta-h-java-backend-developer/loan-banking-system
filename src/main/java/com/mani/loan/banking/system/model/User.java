@@ -1,8 +1,10 @@
 package com.mani.loan.banking.system.model;
 
+import com.mani.loan.banking.system.constant.UserRoles;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -12,6 +14,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,13 +33,22 @@ public class User implements Serializable {
     @NotNull(message = "Username is required")
     private String username;
 
+    @Column(name = "email", nullable = false, unique = true)
+    @NotNull(message = "Email is required")
+    private String email;
+
+    @Column(name = "full_name", nullable = false)
+    @NotNull(message = "Full name is required")
+    private String fullName;
+
     @Column(name = "password", nullable = false)
     @NotNull(message = "Password is required")
     private String userPassword;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     @NotNull(message = "User role is required")
-    private String userRole;
+    private UserRoles userRole;
 
     @Column(name = "is_active", nullable = true, columnDefinition = "bit default 1")
     @NotNull(message = "User status can be null, defaults to ACTIVE")
