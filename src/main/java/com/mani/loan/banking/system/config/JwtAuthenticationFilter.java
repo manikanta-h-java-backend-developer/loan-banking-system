@@ -60,4 +60,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         // Step 11: Continue the filter chain
         filterChain.doFilter(request, response);
     }
+
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        String path = request.getServletPath();
+        // Skip JWT filter for public endpoints entirely
+        return path.startsWith("/actuator") || path.startsWith("/v1/auth");
+    }
 }

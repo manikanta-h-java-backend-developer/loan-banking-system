@@ -32,11 +32,12 @@ public class SecurityConfig {
                 csrf(csrf -> csrf.disable())
                 // Define which endpoints are public vs protected
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll() //public
-//                        .requestMatchers("api/admin/**").hasRole("ADMIN")
-//                        .requestMatchers(HttpMethod.POST, "api/loans/apply").hasRole("CUSTOMER")
-//                        .requestMatchers("/api/loans/*/approve").hasAnyRole("ADMIN", "LOAN_OFFICER")
-//                        .requestMatchers("/api/loans/**").hasAnyRole("ADMIN","LOAN_OFFICER", "CUSTOMER")
+                        .requestMatchers("/v1/auth/**").permitAll() //public
+                        .requestMatchers("/actuator/**").permitAll()
+//                        .requestMatchers("/v1/admin/**").hasRole("ADMIN")
+//                        .requestMatchers(HttpMethod.POST, "/v1/loans/apply").hasRole("CUSTOMER")
+//                        .requestMatchers("/v1/loans/*/approve").hasAnyRole("ADMIN", "LOAN_OFFICER")
+//                        .requestMatchers("/v1/loans/**").hasAnyRole("ADMIN","LOAN_OFFICER", "CUSTOMER")
                         .anyRequest().authenticated()
                 )
                 // Tell Spring this is stateless (no sessions — JWT handles state)

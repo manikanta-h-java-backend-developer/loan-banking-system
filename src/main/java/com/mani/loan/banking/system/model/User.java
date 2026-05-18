@@ -4,6 +4,7 @@ import com.mani.loan.banking.system.constant.UserRoles;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -13,6 +14,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -34,6 +36,10 @@ public class User implements Serializable {
     @Column(name = "email", nullable = false, unique = true)
     @NotNull(message = "Email is required")
     private String email;
+
+    @Column(name = "full_name", nullable = false)
+    @NotNull(message = "Full name is required")
+    private String fullName;
 
     @Column(name = "password", nullable = false)
     @NotNull(message = "Password is required")
