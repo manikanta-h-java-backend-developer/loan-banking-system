@@ -34,6 +34,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/v1/auth/**").permitAll() //public
                         .requestMatchers("/actuator/**").permitAll()
+                        .requestMatchers("/swagger-ui/**").permitAll()
+                        .requestMatchers("/v3/api-docs/**").permitAll()
 //                        .requestMatchers("/v1/admin/**").hasRole("ADMIN")
 //                        .requestMatchers(HttpMethod.POST, "/v1/loans/apply").hasRole("CUSTOMER")
 //                        .requestMatchers("/v1/loans/*/approve").hasAnyRole("ADMIN", "LOAN_OFFICER")
